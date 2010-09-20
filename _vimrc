@@ -36,8 +36,8 @@ nmap <leader>w :wq!<cr>
 nmap <leader>q :q!<cr>
 
 "设置快捷键为win方式的快捷键
-source $VIMRUNTIME/mswin.vim
-behave mswin
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 字体和颜色
@@ -45,16 +45,21 @@ behave mswin
 "开启语法
 syntax enable
 
-"设置字体
-set guifont=Monaco:h14
-
 "设置配色
 if has("gui_running")
 	colorscheme ir_black
     set lines=25  
     set columns=80  
-    "set lazyredraw  "延迟重绘  
-	set transparency=15
+	if has("mac") || has("gui_macvim")
+		set lazyredraw  "延迟重绘  
+		set transparency=15
+		set guifont=Monaco:h14
+	endif
+	if has("win32")
+		set guifont=Consolas:h14
+	endif
+	"设置字体
+	set guifont=dejaVu\ Sans\ MONO\ 10
 else
 	colorscheme slate
 endif
