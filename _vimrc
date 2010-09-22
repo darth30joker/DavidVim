@@ -193,6 +193,9 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 
 "设置TagList的快捷键为F9
+if has("mac") || has("gui_macvim")
+	let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
+endif
 map <F9> :TlistToggle<CR>
 map <leader>tag :TlistToggle<CR>
 
