@@ -13,6 +13,9 @@ set nocompatible
 "设置历史记录步数
 set history=400
 
+"关掉提示音
+set noerrorbells
+
 "开启文件类型判断插件
 filetype plugin on
 filetype indent on
@@ -51,7 +54,7 @@ if has("gui_running")
     set lines=25  
     set columns=80  
 	"设置字体
-	set guifont=dejaVu\ Sans\ MONO\ 10
+	set guifont=dejaVu\ LGC\ Sans\ MONO\ 11
 	if has("mac") || has("gui_macvim")
 		set lazyredraw  "延迟重绘  
 		set transparency=15
@@ -149,8 +152,12 @@ set mat=2
 
 "高亮显示搜索的内容
 set hlsearch
+
 "设置屏幕的大小
 let g:explWinSize=35
+
+"设置滚屏
+set sj=1 so=3
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 编码设置 
