@@ -202,7 +202,7 @@ hi link javaScriptNumber      Number
 
 
 " Special for Python
-"hi  link pythonEscape         Keyword      
+hi  link pythonEscape         Keyword      
 
 
 " Special for CSharp
@@ -210,3 +210,8 @@ hi  link csXmlTag             Keyword
 
 
 " Special for PHP
+"
+"高亮显示当前行
+set cursorline
+hi cursorline guibg=#222222
+hi CursorColumn guibg=#333333
