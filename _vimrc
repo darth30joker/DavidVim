@@ -37,6 +37,8 @@ let g:mapleader = ","
 nmap <leader>s :w!<cr>
 nmap <leader>w :wq!<cr>
 nmap <leader>q :q!<cr>
+nmap <leader>t :tabnew 
+nmap <leader>g gt
 
 "设置快捷键为win方式的快捷键
 source $VIMRUNTIME/mswin.vim
@@ -54,7 +56,7 @@ if has("gui_running")
     set lines=25  
     set columns=80  
 	"设置字体
-	set guifont=dejaVu\ Sans\ MONO\ 10
+	set guifont=droid\ Sans\ MONO\ 11
 	if has("mac") || has("gui_macvim")
 		set lazyredraw  "延迟重绘  
 		set transparency=15
