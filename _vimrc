@@ -56,7 +56,7 @@ if has("gui_running")
     set lines=25  
     set columns=80  
 	"设置字体
-	set guifont=droid\ Sans\ MONO\ 11
+	set guifont=dejaVu\ Sans\ MONO\ 10
 	if has("mac") || has("gui_macvim")
 		set lazyredraw  "延迟重绘  
 		set transparency=15
@@ -219,9 +219,10 @@ map <leader>tag :TlistToggle<CR>
 "设置标签的快捷键
 map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
 map <leader>tl :bn<cr>
 map <leader>tr :bp<cr>
+nnoremap <C-TAB> :tabnext<CR>
+nnoremap <C-S-TAB> :tabprev<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 代码折叠
