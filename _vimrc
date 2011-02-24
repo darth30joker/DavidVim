@@ -56,7 +56,7 @@ if has("gui_running")
     set lines=25  
     set columns=80  
 	"设置字体
-	set guifont=dejaVu\ Sans\ MONO\ 10
+	set guifont=dejaVu\ Sans\ MONO\ 11
 	if has("mac") || has("gui_macvim")
 		set lazyredraw  "延迟重绘  
 		set transparency=15
@@ -101,6 +101,8 @@ set softtabstop=4
 set smarttab
 "不要在单词中断行
 set lbr
+set list
+set lcs=tab:>.,eol:<,nbsp:%,trail:.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 缩进
