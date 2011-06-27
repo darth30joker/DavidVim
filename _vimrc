@@ -52,15 +52,20 @@ syntax enable
 
 "设置配色
 if has("gui_running")
-	colorscheme ir_black
-    set lines=25  
-    set columns=80  
+    colorscheme ir_black
+    "colorscheme yytextmate
+    set lines=46
+    set columns=157
+    "初始窗口的位置
+    winpos 0 0
 	"设置字体
-	set guifont=dejaVu\ Sans\ MONO\ 11
 	if has("mac") || has("gui_macvim")
-		set lazyredraw  "延迟重绘  
-		set transparency=15
-		set guifont=Monaco:h14
+        set lazyredraw  "延迟重绘
+        "set transparency=15
+		set guifont=dejaVu\ Sans\ MONO:h14
+		"set guifont=Monaco:h14
+	else
+		set guifont=dejaVu\ Sans\ MONO\ 11
 	endif
 	if has("win32")
 		set guifont=Consolas:h14
@@ -163,6 +168,9 @@ let g:explWinSize=35
 "设置滚屏
 set sj=1 so=3
 
+"分割窗口时保持相等的宽/高
+set equalalways
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 编码设置 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -207,11 +215,12 @@ let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 "在右侧窗口中显示taglist窗口
 let Tlist_Use_Right_Window = 1
-
+"let Tlist_Ctags_Cmd='/Applications/TextWrangler.app/Contents/Resources/ctags'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "设置TagList的快捷键为F9
-if has("mac") || has("gui_macvim")
-	let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
-endif
+"if has("mac") || has("gui_macvim")
+    "let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
+"endif
 map <F9> :TlistToggle<CR>
 map <leader>tag :TlistToggle<CR>
 
@@ -225,6 +234,8 @@ map <leader>tl :bn<cr>
 map <leader>tr :bp<cr>
 nnoremap <C-TAB> :tabnext<CR>
 nnoremap <C-S-TAB> :tabprev<CR>
+set guitablabel=%t
+autocmd! bufwritepost .vimrc source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 代码折叠
