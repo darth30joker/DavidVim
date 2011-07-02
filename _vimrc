@@ -52,8 +52,8 @@ syntax enable
 
 "设置配色
 if has("gui_running")
-    colorscheme ir_black
-    "colorscheme yytextmate
+    "colorscheme ir_black
+    colorscheme yytextmate
     set lines=46
     set columns=157
     "初始窗口的位置
