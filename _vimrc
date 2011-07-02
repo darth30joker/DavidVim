@@ -1,12 +1,12 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
 "  Created by David Xie
 "  E-mail : mykingheaven@gmail.com
 "   blog  : http://davidx.me/
 "
 "  CreatedTime:2009-02-06 14:03
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
 " => 全局配置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""
 "关掉兼容模式
 set nocompatible
 
@@ -51,27 +51,30 @@ behave mswin
 syntax enable
 
 "设置配色
+colorscheme desert
+"colorscheme ir_black
+"
+"初始窗口的位置
+winpos 0 0
+"设置窗口的大小
+set lines=56
+set columns=158
 if has("gui_running")
-    "colorscheme ir_black
     colorscheme yytextmate
-    set lines=46
-    set columns=157
-    "初始窗口的位置
-    winpos 0 0
-	"设置字体
-	if has("mac") || has("gui_macvim")
+    if has("mac") || has("gui_macvim")
         set lazyredraw  "延迟重绘
+        "设置窗口的大小
+        set lines=46
+        set columns=157
         "set transparency=15
-		set guifont=dejaVu\ Sans\ MONO:h14
-		"set guifont=Monaco:h14
-	else
-		set guifont=dejaVu\ Sans\ MONO\ 11
-	endif
-	if has("win32")
-		set guifont=Consolas:h14
-	endif
-else
-	colorscheme slate
+        "设置字体
+        set guifont=dejaVu\ Sans\ MONO:h14
+        "set guifont=Monaco:h14
+    elseif has("win32")
+        set guifont=Consolas:h14
+    else
+        set guifont=dejaVu\ Sans\ MONO\ 11
+    endif
 endif
 
 "高亮显示当前行
@@ -125,8 +128,9 @@ set wrap
 " => Vim 界面
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Turn on WiLd menu
+set wildmode=longest,list
 set wildmenu
-
+"
 "显示标尺
 set ruler
 
@@ -216,7 +220,6 @@ let Tlist_Exit_OnlyWindow = 1
 "在右侧窗口中显示taglist窗口
 let Tlist_Use_Right_Window = 1
 "let Tlist_Ctags_Cmd='/Applications/TextWrangler.app/Contents/Resources/ctags'
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 "设置TagList的快捷键为F9
 "if has("mac") || has("gui_macvim")
     "let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
@@ -262,3 +265,17 @@ snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 " => pydiction
 """""""""""""""""""""""""""""""
 let g:pydiction_location = '/Users/davidx/.vim/ftplugin/pydiction/complete-dict'
+
+"""""""""""""""""""""""""""""""
+" 最大化窗口
+"""""""""""""""""""""""""""""""
+function Maximize_Window()
+  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+endfunction
+
+"""""""""""""""""""""""""""""""
+" 操作系统特别设置
+"""""""""""""""""""""""""""""""
+if has("mac")
+    let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+endif
