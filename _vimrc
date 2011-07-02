@@ -49,18 +49,12 @@ behave mswin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "开启语法
 syntax enable
-
-"设置配色
-colorscheme desert
-"colorscheme ir_black
-"
-"初始窗口的位置
-winpos 0 0
-"设置窗口的大小
-set lines=56
-set columns=158
 if has("gui_running")
-    colorscheme yytextmate
+    "初始窗口的位置
+    winpos 0 0
+    "设置配色
+    "colorscheme ir_black
+    colorscheme desert
     if has("mac") || has("gui_macvim")
         set lazyredraw  "延迟重绘
         "设置窗口的大小
@@ -70,11 +64,14 @@ if has("gui_running")
         "设置字体
         set guifont=dejaVu\ Sans\ MONO:h14
         "set guifont=Monaco:h14
-    elseif has("win32")
-        set guifont=Consolas:h14
     else
         set guifont=dejaVu\ Sans\ MONO\ 11
     endif
+    if has("win32")
+        set guifont=Consolas:h14
+    endif
+else
+    colorscheme desert
 endif
 
 "高亮显示当前行
@@ -221,9 +218,6 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 "let Tlist_Ctags_Cmd='/Applications/TextWrangler.app/Contents/Resources/ctags'
 "设置TagList的快捷键为F9
-"if has("mac") || has("gui_macvim")
-    "let Tlist_Ctags_Cmd='/opt/local/bin/ctags'
-"endif
 map <F9> :TlistToggle<CR>
 map <leader>tag :TlistToggle<CR>
 
@@ -269,7 +263,7 @@ let g:pydiction_location = '/Users/davidx/.vim/ftplugin/pydiction/complete-dict'
 """""""""""""""""""""""""""""""
 " 最大化窗口
 """""""""""""""""""""""""""""""
-function Maximize_Window()
+function! Maximize_Window()
   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
 
