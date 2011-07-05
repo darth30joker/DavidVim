@@ -1,9 +1,9 @@
 """"""""""""""""""""""""""""""""""""""
 "  Created by David Xie
-"  E-mail : mykingheaven@gmail.com
-"   blog  : http://davidx.me/
-"
-"  CreatedTime:2009-02-06 14:03
+"     E-mail    : david.xie@me.com
+"      Blog     : http://davidx.me/
+"  CreatedTime  : 2009-02-06 14:03
+"  LastModified : 2011-07-05 15:26
 """"""""""""""""""""""""""""""""""""""
 " => 全局配置
 """"""""""""""""""""""""""""""""""""""
@@ -26,6 +26,9 @@ set autoread
 "激活鼠标的使用
 set mouse=a
 
+"开启语法
+syntax enable
+
 "设置','为leader快捷键
 let mapleader = ","
 let g:mapleader = ","
@@ -47,8 +50,6 @@ behave mswin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 字体和颜色
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"开启语法
-syntax enable
 if has("gui_running")
     "初始窗口的位置
     winpos 0 0
@@ -185,7 +186,6 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置NerdTree的快捷键为F10
 map <F10> :NERDTreeToggle<CR>
-map <leader>nt :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 状态栏的设置
@@ -216,7 +216,6 @@ let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 "在右侧窗口中显示taglist窗口
 let Tlist_Use_Right_Window = 1
-"let Tlist_Ctags_Cmd='/Applications/TextWrangler.app/Contents/Resources/ctags'
 "设置TagList的快捷键为F9
 map <F9> :TlistToggle<CR>
 map <leader>tag :TlistToggle<CR>
@@ -229,7 +228,7 @@ map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
 map <leader>tl :bn<cr>
 map <leader>tr :bp<cr>
-nnoremap <C-TAB> :tabnext<CR>
+map <F8> :tabnext<CR>
 nnoremap <C-S-TAB> :tabprev<CR>
 set guitablabel=%t
 autocmd! bufwritepost .vimrc source ~/.vimrc
