@@ -51,6 +51,7 @@ behave mswin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 字体和颜色
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
 if has("gui_running")
     "初始窗口的位置
     winpos 0 0
@@ -74,7 +75,7 @@ if has("gui_running")
     endif
 else
     colorscheme solarized
-	"colorscheme desert
+    "colorscheme desert
 endif
 
 "高亮显示当前行
