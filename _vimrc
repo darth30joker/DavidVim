@@ -4,6 +4,7 @@
 "      Blog     : http://davidx.me/
 "  CreatedTime  : 2009-02-06 14:03
 "  LastModified : 2011-07-05 15:26
+"  Version      : 1.0
 """"""""""""""""""""""""""""""""""""""
 " => 全局配置
 """"""""""""""""""""""""""""""""""""""
@@ -55,7 +56,7 @@ if has("gui_running")
     winpos 0 0
     "设置配色
     "colorscheme ir_black
-    colorscheme desert
+    colorscheme solarized
     if has("mac") || has("gui_macvim")
         set lazyredraw  "延迟重绘
         "设置窗口的大小
@@ -72,7 +73,8 @@ if has("gui_running")
         set guifont=Consolas:h14
     endif
 else
-    colorscheme desert
+    colorscheme solarized
+	"colorscheme desert
 endif
 
 "高亮显示当前行
