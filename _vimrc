@@ -41,8 +41,6 @@ let g:mapleader = ","
 nmap <leader>s :w!<cr>
 nmap <leader>w :wq!<cr>
 nmap <leader>q :q!<cr>
-nmap <leader>t :tabnew 
-nmap <leader>g gt
 
 "设置快捷键为win方式的快捷键
 source $VIMRUNTIME/mswin.vim
@@ -53,6 +51,8 @@ behave mswin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
+    set guioptions-=m
+    set guioptions-=T
     "初始窗口的位置
     winpos 0 0
     "设置配色
@@ -231,9 +231,7 @@ map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
 map <leader>tl :bn<cr>
 map <leader>tr :bp<cr>
-map <F2> :tabnew<CR>
-map <F3> :tabnext<CR>
-map <F4> :tabclose<CR>
+map <F8> :tabnext<CR>
 nnoremap <C-S-TAB> :tabprev<CR>
 set guitablabel=%t
 autocmd! bufwritepost .vimrc source ~/.vimrc
