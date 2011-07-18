@@ -231,7 +231,9 @@ map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
 map <leader>tl :bn<cr>
 map <leader>tr :bp<cr>
-map <F8> :tabnext<CR>
+map <F2> :tabnew<CR>
+map <F3> :tabnext<CR>
+map <F4> :tabclose<CR>
 nnoremap <C-S-TAB> :tabprev<CR>
 set guitablabel=%t
 autocmd! bufwritepost .vimrc source ~/.vimrc
