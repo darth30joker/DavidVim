@@ -227,12 +227,9 @@ map <leader>tag :TlistToggle<CR>
 " => 标签控制
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置标签的快捷键
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>tl :bn<cr>
-map <leader>tr :bp<cr>
-map <F8> :tabnext<CR>
-nnoremap <C-S-TAB> :tabprev<CR>
+map <F2> :tabnew<CR>
+map <F3> :tabnext<CR>
+map <F4> :tabclose<CR>
 set guitablabel=%t
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
