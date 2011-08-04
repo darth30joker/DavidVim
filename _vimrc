@@ -6,67 +6,59 @@
 "  LastModified : 2011-07-05 15:26
 "  Version      : 1.0
 """"""""""""""""""""""""""""""""""""""
-" => 全局配置
+" => Overview
 """"""""""""""""""""""""""""""""""""""
-"关掉兼容模式
+"turn off compatible
 set nocompatible
 
-"设置历史记录步数
+"history
 set history=400
 
-"关掉提示音
+"trun off bell
 set noerrorbells
 
-"开启文件类型判断插件
+"turn on plugin and indent
 filetype plugin on
 filetype indent on
 
-"当文件在外部被修改，自动更新该文件
+"auto read file when changed
 set autoread
 
-"激活鼠标的使用
+"active mouse
 set mouse=a
 
-"开启语法
+"enable syntax support
 syntax enable
 
-"设置','为leader快捷键
+"set leader key to ','
 let mapleader = ","
 let g:mapleader = ","
 
-"设置快速保存和退出
-"快速保存为,s
-"快速退出（保存）为,w
-"快速退出（不保存）为,q
+"set shortcuts for save and quit
 nmap <leader>s :w!<cr>
 nmap <leader>w :wq!<cr>
 nmap <leader>q :q!<cr>
 
-"设置快捷键为win方式的快捷键
+"import mswin.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 字体和颜色
+" => fonts and colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
 if has("gui_running")
-    set guioptions-=m
-    set guioptions-=T
-    "初始窗口的位置
+    "initialize window posision
     winpos 0 0
-    "设置配色
-    "colorscheme ir_black
+    "set colorscheme
     colorscheme solarized
     if has("mac") || has("gui_macvim")
-        set lazyredraw  "延迟重绘
-        "设置窗口的大小
+        set lazyredraw
+        "set window size
         set lines=46
         set columns=157
-        "set transparency=15
-        "设置字体
+        "set font
         set guifont=dejaVu\ Sans\ MONO:h14
-        "set guifont=Monaco:h14
     else
         set guifont=dejaVu\ Sans\ MONO\ 11
     endif
@@ -75,105 +67,105 @@ if has("gui_running")
     endif
 else
     colorscheme solarized
-    "colorscheme desert
 endif
 
-"高亮显示当前行
+"highlight current line
 set cursorline
 hi cursorline guibg=#222222
 hi CursorColumn guibg=#333333
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 文件和备份 
+" => files and backup 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"关闭自动备份和交换文件
+"turn off backup and swap
 set nobackup
 set nowb
 set noswapfile
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 折叠
+" => folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"开启折叠
+"turn on folding
 set nofen
 set fdl=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 文字处理
+" => word processing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"使用空格来替换tab
+"use spaces for tab
 au filetype python set expandtab
-"设置所有的tab和缩进为4个空格
+"all tab are 4 spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smarttab
-"不要在单词中断行
+"don't break line
 set lbr
 set list
 set lcs=tab:>.,eol:<,nbsp:%,trail:.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 缩进
+" => indent
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"自动缩进(继承前一行的缩进)
+"auto indent
 set ai
 
-"智能缩进
-"set si
-
-"自动换行
+"wrap
 set wrap
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim 界面
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Turn on WiLd menu
+"remove toolbar and menu
+set guioptions-=m
+set guioptions-=T
+
+"turn on wild menu
 set wildmode=longest,list
 set wildmenu
 "
-"显示标尺
+"show ruler
 set ruler
 
-"设置命令行的高度
+"set command line height to 1
 set cmdheight=1
 
-"显示行数
+"show line number
 set nu
 
-"Do not redraw, when running macros.. lazyredraw
+"do not redraw, when running macros.. lazyredraw
 set lz
 
-"设置退格
+"set backspace
 set backspace=eol,start,indent
 
-"Bbackspace and cursor keys wrap to
+"backspace and cursor keys wrap to
 set whichwrap+=<,>,h,l,b,s,[,]
 
-"Set magic on
+"set magic on
 set magic
 
-"关闭遇到错误时的声音提示
+"turn off bell
 set noerrorbells
 set novisualbell
 
-"显示匹配的括号([{和}])
+"
 set showmatch
 set matchpairs=(:),{:},[:],<:>
 
 "How many tenths of a second to blink
 set mat=2
 
-"高亮显示搜索的内容
+"highlight research
 set hlsearch
 
-"设置屏幕的大小
+"set screen size
 let g:explWinSize=35
 
-"设置滚屏
+"set scroll
 set sj=1 so=3
 
-"分割窗口时保持相等的宽/高
+"when split, use same height and width
 set equalalways
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,18 +183,18 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 map <F10> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 状态栏的设置
+" => Command Line
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-"开启状态栏
+"turn on command line
 set laststatus=2
 
-"显示当前目录的函数
+"function of show infomation of current file
 function! CurDir()
     let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
     return curdir
 endfunction
 
-"设置状态栏的信息
+"format statusline
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -227,9 +219,6 @@ map <leader>tag :TlistToggle<CR>
 " => 标签控制
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置标签的快捷键
-map <F2> :tabnew<CR>
-map <F3> :tabnext<CR>
-map <F4> :tabclose<CR>
 set guitablabel=%t
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
@@ -271,4 +260,7 @@ endfunction
 """""""""""""""""""""""""""""""
 if has("mac")
     let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+    let g:solarized_termcolors=256
 endif
+
+let qb_hotkey="<F4>"
