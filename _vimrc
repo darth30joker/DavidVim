@@ -222,7 +222,7 @@ let Tlist_Exit_OnlyWindow = 1
 "在右侧窗口中显示taglist窗口
 let Tlist_Use_Right_Window = 1
 "设置TagList的快捷键为F9
-map <F9> :TlistToggle<CR>
+map <F9> :TagbarToggle<CR>
 map <leader>tag :TlistToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -273,4 +273,5 @@ endfunction
 """""""""""""""""""""""""""""""
 if has("mac")
     let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 endif

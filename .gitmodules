@@ -10,3 +10,9 @@
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule "bundle/AutoComplPop"]
+	path = bundle/AutoComplPop
+	url = git://github.com/vim-scripts/AutoComplPop
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
