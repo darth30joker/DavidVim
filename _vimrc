@@ -18,6 +18,7 @@ set history=400
 set noerrorbells
 
 "开启文件类型判断插件
+call pathogen#infect()
 filetype plugin on
 filetype indent on
 
@@ -74,6 +75,7 @@ if has("gui_running")
         set guifont=Consolas:h14
     endif
 else
+    let g:solarized_termcolors=256
     colorscheme solarized
     "colorscheme desert
 endif
