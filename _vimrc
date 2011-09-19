@@ -4,7 +4,7 @@
 "      Blog     : http://davidx.me/
 "  CreatedTime  : 2009-02-06 14:03
 "  LastModified : 2011-07-05 15:26
-"  Version      : 1.0
+"  Version      : 2.0
 """"""""""""""""""""""""""""""""""""""
 " => Overview
 """"""""""""""""""""""""""""""""""""""
@@ -14,12 +14,13 @@ set nocompatible
 "history
 set history=400
 
-"trun off bell
+"turn off bell
 set noerrorbells
 
-"turn on plugin and indent
-"开启文件类型判断插件
+"call pathogen
 call pathogen#infect()
+"
+"turn on plugin and indent
 filetype plugin on
 filetype indent on
 
@@ -45,14 +46,18 @@ nmap <leader>q :q!<cr>
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+"auto reload .vimrc
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fonts and colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark
 if has("gui_running")
+    set background=dark
     "initialize window posision
     winpos 0 0
     "set colorscheme
+    "colorscheme ir_black
     colorscheme solarized
     if has("mac") || has("gui_macvim")
         set lazyredraw
@@ -69,7 +74,7 @@ if has("gui_running")
     endif
 else
     let g:solarized_termcolors=256
-    colorscheme solarized
+    colorscheme desert
 endif
 
 "highlight current line
@@ -97,11 +102,13 @@ set fdl=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "use spaces for tab
 au filetype python set expandtab
+
 "all tab are 4 spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smarttab
+
 "don't break line
 set lbr
 set list
@@ -117,7 +124,7 @@ set ai
 set wrap
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim 界面
+" => Vim Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "remove toolbar and menu
 set guioptions-=m
@@ -152,7 +159,7 @@ set magic
 set noerrorbells
 set novisualbell
 
-"
+"pair matching
 set showmatch
 set matchpairs=(:),{:},[:],<:>
 
@@ -172,17 +179,17 @@ set sj=1 so=3
 set equalalways
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 编码设置 
+" => encoding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置编码
+"encoding
 set encoding=utf-8
-"设置文件编码
+"file encoding
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NerdTree 插件
+" => NerdTree Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置NerdTree的快捷键为F10
+"hotkey
 map <F10> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -201,44 +208,31 @@ endfunction
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 标签栏的设置
+" => Tab Line
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
-set showtabline=2
+set showtabline=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tag list (ctags)
+" => Tagbar (ctags)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"不同时显示多个文件的tag，只显示当前文件的
-let Tlist_Show_One_File = 1
-"如果taglist窗口是最后一个窗口，则退出vim
-let Tlist_Exit_OnlyWindow = 1
-"在右侧窗口中显示taglist窗口
-let Tlist_Use_Right_Window = 1
-"设置TagList的快捷键为F9
+"hotkey
 map <F9> :TagbarToggle<CR>
-map <leader>tag :TlistToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 标签控制
+" => tab control
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置标签的快捷键
+"gui tab label
 set guitablabel=%t
-autocmd! bufwritepost .vimrc source ~/.vimrc
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => 代码折叠
+" => folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set fdm=indent
 
 """"""""""""""""""""""""""""""
-" bufExplorer插件的设置
+" QuickBuf
 """"""""""""""""""""""""""""""
-let g:bufExplorerSortBy='mru'
-let g:bufExplorerSplitRight=0
-let g:bufExplorerSplitVertical=1
-let g:bufExplorerSplitVertSize = 30
-let g:bufExplorerUseCurrentWindow=1
-autocmd BufWinEnter \[Buf\ List\] setl nonumber
+let qb_hotkey="<F4>"
 
 """""""""""""""""""""""""""""""
 " => snipMate
@@ -252,17 +246,16 @@ snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 let g:pydiction_location = '/Users/davidx/.vim/ftplugin/pydiction/complete-dict'
 
 """""""""""""""""""""""""""""""
-" 最大化窗口
+" Maximize Window
 """""""""""""""""""""""""""""""
 function! Maximize_Window()
   silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
 endfunction
 
 """""""""""""""""""""""""""""""
-" 操作系统特别设置
+" OS Special
 """""""""""""""""""""""""""""""
 if has("mac")
     let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 endif
 
-let qb_hotkey="<F4>"

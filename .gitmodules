@@ -16,3 +16,6 @@
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/QuickBuf"]
+	path = bundle/QuickBuf
+	url = git://github.com/vim-scripts/QuickBuf.git
