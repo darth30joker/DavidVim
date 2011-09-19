@@ -18,6 +18,8 @@ set history=400
 set noerrorbells
 
 "turn on plugin and indent
+"开启文件类型判断插件
+call pathogen#infect()
 filetype plugin on
 filetype indent on
 
@@ -66,6 +68,7 @@ if has("gui_running")
         set guifont=Consolas:h14
     endif
 else
+    let g:solarized_termcolors=256
     colorscheme solarized
 endif
 
@@ -212,7 +215,7 @@ let Tlist_Exit_OnlyWindow = 1
 "在右侧窗口中显示taglist窗口
 let Tlist_Use_Right_Window = 1
 "设置TagList的快捷键为F9
-map <F9> :TlistToggle<CR>
+map <F9> :TagbarToggle<CR>
 map <leader>tag :TlistToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,8 +262,7 @@ endfunction
 " 操作系统特别设置
 """""""""""""""""""""""""""""""
 if has("mac")
-    let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-    let g:solarized_termcolors=256
+    let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 endif
 
 let qb_hotkey="<F4>"
