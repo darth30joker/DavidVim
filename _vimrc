@@ -206,6 +206,7 @@ endfunction
 
 "format statusline
 set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+hi statusline guifg=red guibg=white
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Tab Line
@@ -217,12 +218,6 @@ set showtabline=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hotkey
 map <F9> :TagbarToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => tab control
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"gui tab label
-set guitablabel=%t
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => folding
@@ -239,11 +234,6 @@ let qb_hotkey="<F4>"
 """""""""""""""""""""""""""""""
 ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-"""""""""""""""""""""""""""""""
-" => pydiction
-"""""""""""""""""""""""""""""""
-let g:pydiction_location = '/Users/davidx/.vim/ftplugin/pydiction/complete-dict'
 
 """""""""""""""""""""""""""""""
 " Maximize Window
