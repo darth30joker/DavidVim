@@ -178,6 +178,8 @@ set sj=1 so=3
 "when split, use same height and width
 set equalalways
 
+set colorcolumn=81
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => encoding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
