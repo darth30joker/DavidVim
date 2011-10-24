@@ -178,6 +178,7 @@ set sj=1 so=3
 "when split, use same height and width
 set equalalways
 
+set colorcolumn=81
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => encoding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -190,7 +191,7 @@ set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 " => NerdTree Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hotkey
-map <F10> :NERDTreeToggle<CR>
+map <F5> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command Line
@@ -217,7 +218,7 @@ set showtabline=1
 " => Tagbar (ctags)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "hotkey
-map <F9> :TagbarToggle<CR>
+map <F6> :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => folding
@@ -236,16 +237,16 @@ ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 """""""""""""""""""""""""""""""
-" Maximize Window
-"""""""""""""""""""""""""""""""
-function! Maximize_Window()
-  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-endfunction
-
-"""""""""""""""""""""""""""""""
 " OS Special
 """""""""""""""""""""""""""""""
 if has("mac")
     let g:tagbar_ctags_bin='/usr/local/bin/ctags'
 endif
+
+"""""""""""""""""""""""""""""""
+" Maximize Window
+"""""""""""""""""""""""""""""""
+function! Maximize_Window()
+  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+endfunction
 
