@@ -16,3 +16,6 @@
 [submodule "bundle/QuickBuf"]
 	path = bundle/QuickBuf
 	url = git://github.com/vim-scripts/QuickBuf.git
+[submodule "bundle/SnipMate"]
+	path = bundle/SnipMate
+	url = git://github.com/msanders/snipmate.vim.git

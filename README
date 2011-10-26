@@ -2,19 +2,29 @@
 # author: davidx
 # email : david.xie@me.com
 ###########################################
+
+** Installation **
+
+	1. clone this repository to ~/.vim
+	2. cd .vim
+	3. git submodule update
+	4. cd
+	5. ln -s ~/.vim/_vimrc .vimrc
+	6. enjoy!
+
 ** plugins:
 
     1. NerdTree
-    2. TagList
+    2. TagBar
     3. SnipMate
+	4. QuickBuf
+	5. AutoComplete
 
 ** hotkeys:
     1. leader - ,
-    2. F2 - new tab
-    3. F3 - switch tab
-    4. F4 - close tab
-    5. F9 - taglist
-    6. F10 - nerdtree
+    2. F4 - QuickBuf
+    3. F5 - NerdTree
+    5. F6 - TagBar
 
 ** colorscheme screenshot:
     http://ethanschoonover.com/solarized/img/screen-python-dark.png
