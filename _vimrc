@@ -58,7 +58,8 @@ if has("gui_running")
     winpos 0 0
     "set colorscheme
     "colorscheme ir_black
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme Blackboard
     if has("mac") || has("gui_macvim")
         set lazyredraw
         "set window size
@@ -178,7 +179,7 @@ set sj=1 so=3
 "when split, use same height and width
 set equalalways
 
-set colorcolumn=81
+"set colorcolumn=81
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => encoding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
