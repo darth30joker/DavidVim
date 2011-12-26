@@ -59,7 +59,7 @@ if has("gui_running")
     "set colorscheme
     "colorscheme ir_black
     "colorscheme solarized
-    colorscheme Blackboard
+    colorscheme merbivore
     if has("mac") || has("gui_macvim")
         set lazyredraw
         "set window size
