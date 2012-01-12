@@ -19,3 +19,6 @@
 [submodule "bundle/SnipMate"]
 	path = bundle/SnipMate
 	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/colorselector"]
+	path = bundle/colorselector
+	url = https://github.com/c9s/colorselector.vim.git
