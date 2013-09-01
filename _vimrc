@@ -6,7 +6,6 @@
 "  LastModified : 2011-07-05 15:26
 "  Version      : 2.0
 """"""""""""""""""""""""""""""""""""""
-" => Overview
 """"""""""""""""""""""""""""""""""""""
 "turn off compatible
 set nocompatible
@@ -48,6 +47,7 @@ behave mswin
 
 "auto reload .vimrc
 autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => fonts and colors
@@ -66,7 +66,8 @@ if has("gui_running")
         set lines=46
         set columns=157
         "set font
-        set guifont=dejaVu\ Sans\ MONO:h14
+        "set guifont=dejaVu\ Sans\ MONO:h14
+        set guifont=Ubuntu\ Mono:h16
     else
         set guifont=dejaVu\ Sans\ MONO\ 11
     endif
@@ -171,7 +172,7 @@ set mat=2
 set hlsearch
 
 "set screen size
-let g:explWinSize=35
+"let g:explWinSize=35
 
 "set scroll
 set sj=1 so=3
@@ -238,6 +239,16 @@ ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 """""""""""""""""""""""""""""""
+" => CtrlP
+"""""""""""""""""""""""""""""""
+nmap <leader>t :CtrlP<CR>
+
+"""""""""""""""""""""""""""""""
+" => CtrlP
+"""""""""""""""""""""""""""""""
+nmap <leader>g :GitGutterToggle<CR>
+
+"""""""""""""""""""""""""""""""
 " OS Special
 """""""""""""""""""""""""""""""
 if has("mac")
@@ -245,9 +256,16 @@ if has("mac")
 endif
 
 """""""""""""""""""""""""""""""
+" => snipMate
+"""""""""""""""""""""""""""""""
+if exists('$TMUX') " Support resizing in tmux
+  set ttymouse=xterm2
+endif
+
+"""""""""""""""""""""""""""""""
 " Maximize Window
 """""""""""""""""""""""""""""""
-function! Maximize_Window()
-  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-endfunction
+"function! Maximize_Window()
+"  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
+"endfunction
 
