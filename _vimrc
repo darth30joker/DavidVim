@@ -1,51 +1,39 @@
-""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""
 "  Created by David Xie
-"     E-mail    : david.xie@me.com
+"     E-mail    : david.scriptfan@gmail.com
 "      Blog     : http://davidx.me/
 "  CreatedTime  : 2009-02-06 14:03
 "  LastModified : 2011-07-05 15:26
 "  Version      : 2.0
-""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""
-"turn off compatible
+""""""""""""""""""""""""""""""""""""""""""""
+
+" turn off compatible
 set nocompatible
 
-"history
+" history
 set history=400
 
-"turn off bell
-set noerrorbells
-
-"call pathogen
+" call pathogen
 call pathogen#infect()
-"
-"turn on plugin and indent
+
+" turn on plugin and indent
 filetype plugin on
 filetype indent on
 
-"auto read file when changed
+" auto read file when changed
 set autoread
 
-"active mouse
+" active mouse
 set mouse=a
 
-"enable syntax support
+" enable syntax support
 syntax enable
 
-"set leader key to ','
-let mapleader = ","
-let g:mapleader = ","
-
-"set shortcuts for save and quit
-nmap <leader>s :w!<cr>
-nmap <leader>w :wq!<cr>
-nmap <leader>q :q!<cr>
-
-"import mswin.vim
+" import mswin.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-"auto reload .vimrc
+" auto reload .vimrc
 autocmd! bufwritepost .vimrc source ~/.vimrc
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
@@ -54,32 +42,26 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
     set background=dark
-    "initialize window posision
-    winpos 0 0
-    "set colorscheme
+    " set colorscheme
     "colorscheme ir_black
     "colorscheme solarized
     colorscheme merbivore
     if has("mac") || has("gui_macvim")
         set lazyredraw
-        "set window size
-        set lines=46
-        set columns=157
-        "set font
         "set guifont=dejaVu\ Sans\ MONO:h14
         set guifont=Ubuntu\ Mono:h16
     else
-        set guifont=dejaVu\ Sans\ MONO\ 11
+        "set guifont=dejaVu\ Sans\ MONO\ 11
+        set guifont=Ubuntu\ Mono\ 12
     endif
     if has("win32")
         set guifont=Consolas:h14
     endif
 else
-    let g:solarized_termcolors=256
     colorscheme desert
 endif
 
-"highlight current line
+" highlight current line
 set cursorline
 hi cursorline guibg=#222222
 hi CursorColumn guibg=#333333
@@ -87,7 +69,7 @@ hi CursorColumn guibg=#333333
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => files and backup 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"turn off backup and swap
+" turn off backup and swap
 set nobackup
 set nowb
 set noswapfile
@@ -95,23 +77,24 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"turn on folding
+" turn on folding
 set nofen
 set fdl=0
+set fdm=indent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => word processing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"use spaces for tab
+" use spaces for tab
 au filetype python set expandtab
 
-"all tab are 4 spaces
+" all tab are 4 spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smarttab
 
-"don't break line
+" don't break line
 set lbr
 set list
 set lcs=tab:>.,eol:<,nbsp:%,trail:.
@@ -119,68 +102,66 @@ set lcs=tab:>.,eol:<,nbsp:%,trail:.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => indent
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"auto indent
+" auto indent
 set ai
 
-"wrap
+" wrap
 set wrap
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"remove toolbar and menu
+" remove toolbar and menu
 set guioptions-=m
 set guioptions-=T
 
-"turn on wild menu
+" turn on wild menu
 set wildmode=longest,list
 set wildmenu
-"
-"show ruler
+
+" show ruler
 set ruler
 
-"set command line height to 1
+" set command line height to 1
 set cmdheight=1
 
-"show line number
+" show line number
 set nu
 
-"do not redraw, when running macros.. lazyredraw
+" do not redraw, when running macros.. lazyredraw
 set lz
 
-"set backspace
+" set backspace
 set backspace=eol,start,indent
 
-"backspace and cursor keys wrap to
+" backspace and cursor keys wrap to
 set whichwrap+=<,>,h,l,b,s,[,]
 
-"set magic on
+" set magic on
 set magic
 
-"turn off bell
+" turn off bells
 set noerrorbells
 set novisualbell
 
-"pair matching
+" pair matching
 set showmatch
 set matchpairs=(:),{:},[:],<:>
 
-"How many tenths of a second to blink
+" How many tenths of a second to blink
 set mat=2
 
-"highlight research
+" highlight research
 set hlsearch
 
-"set screen size
-"let g:explWinSize=35
-
-"set scroll
+" set scroll
 set sj=1 so=3
 
-"when split, use same height and width
+" when split, use same height and width
 set equalalways
 
-"set colorcolumn=81
+set colorcolumn=81
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => encoding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -188,12 +169,6 @@ set equalalways
 set encoding=utf-8
 "file encoding
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NerdTree Plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"hotkey
-map <F5> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Command Line
@@ -216,38 +191,6 @@ hi statusline guifg=red guibg=white
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 set showtabline=1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tagbar (ctags)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"hotkey
-map <F6> :TagbarToggle<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => folding
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set fdm=indent
-
-""""""""""""""""""""""""""""""
-" QuickBuf
-""""""""""""""""""""""""""""""
-let qb_hotkey="<F4>"
-
-"""""""""""""""""""""""""""""""
-" => snipMate
-"""""""""""""""""""""""""""""""
-ino <c-j> <c-r>=TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
-
-"""""""""""""""""""""""""""""""
-" => CtrlP
-"""""""""""""""""""""""""""""""
-nmap <leader>t :CtrlP<CR>
-
-"""""""""""""""""""""""""""""""
-" => CtrlP
-"""""""""""""""""""""""""""""""
-nmap <leader>g :GitGutterToggle<CR>
-
 """""""""""""""""""""""""""""""
 " OS Special
 """""""""""""""""""""""""""""""
@@ -262,10 +205,35 @@ if exists('$TMUX') " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
+
 """""""""""""""""""""""""""""""
-" Maximize Window
+" => shortcuts
 """""""""""""""""""""""""""""""
-"function! Maximize_Window()
-"  silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz
-"endfunction
+" set leader key to ','
+let mapleader = ","
+let g:mapleader = ","
+
+" set shortcuts for save and quit
+nmap <leader>s :w!<cr>
+nmap <leader>w :wq!<cr>
+nmap <leader>q :q!<cr>
+
+" NerdTree
+map <F5> :NERDTreeToggle<CR>
+
+" TabBar
+map <F6> :TagbarToggle<CR>
+
+" QuickBuf
+let qb_hotkey="<F4>"
+
+" SnipMate
+ino <c-j> <c-r>=TriggerSnippet()<cr>
+snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
+
+" CtrlP
+nmap <leader>t :CtrlP<CR>
+
+" GitGutter
+nmap <leader>g :GitGutterToggle<CR>
 
